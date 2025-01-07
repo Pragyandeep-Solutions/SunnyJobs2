@@ -1,0 +1,32 @@
+{% extends 'testapp/base.html' %}
+{% block body_block %}
+<h1>Hyderabad Jobs Information</h1>
+{% if jobs_list %}
+  <table border="2">
+    <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Eligibility</th>
+        <th>Address</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+    </thead>
+    {% for job in jobs_list %}
+      <tbody>
+          <tr>
+              <td>{{job.date}}</td>
+              <td>{{job.company}}</td>
+              <td>{{job.title}}</td>
+              <td>{{job.eligibility}}</td>
+              <td>{{job.address}}</td>
+              <td>{{job.email}}</td>
+              <td>{{job.phonenumber}}</td>
+          </tr>
+      </tbody>
+    {% endfor %}
+  </table>
+{% else %}
+    <p>No jobs available in Hyderabad currently.</p>
+{% endif %}
+{% endblock %}
